@@ -1,0 +1,153 @@
+html,body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
+}
+main{
+    flex: 1 0 auto;
+}
+.filler {
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+.bghome {
+
+    background-image: url("../images/home_image.png");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.centered_top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    padding: 18px;
+}
+.centered_bottom {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    padding: 18px;
+}
+.centered_bottom_text {
+    font-size: 1em;
+}
+footer {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+.footer {
+    flex-shrink: 0;
+}
+.article_title {
+    text-align: center;
+}
+.article_content {
+    text-align: center;
+    padding: 0 15% 0 15%;
+}
+.article_info {
+    text-align: center;
+}
+.page_title {
+    text-align: center;
+}
+.centered_text {
+     text-align: center;
+}
+.not_found {
+    font-family: 'Noto Sans', sans-serif;
+}
+.not_found h1{
+    margin: 0;
+    font-size: 5em;
+}
+.not_found h3{
+    margin: 0;
+    font-size: 1em;
+}
+.pageselector {
+    margin: 1px;
+    padding: 10px 10px 10px 10px;
+}
+.centered_block {
+    margin: auto;
+}
+.hidden_block {
+    display: none;
+}
+.navigation_arrows {
+    font-size: 2em;
+    text-decoration: none;
+    color: black;
+}
+.disabled_navigation_arrows{
+    font-size: 2em;
+    text-decoration: none;
+    color: darkgrey;
+}
+.mobile_hidden {
+    display: none;
+}
+@media screen and (min-width: 40em) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .onecolumn {
+        grid-column: 1;
+    }
+
+    .twocolumns {
+        grid-column: 1 / 3;
+    }
+    .threecolumns {
+        grid-column: 1 / 4;
+    }
+    .firstcolumn {
+
+    }
+    .secondcolumn {
+
+    }
+    .thirdcolumn {
+        grid-column: 4;
+    }
+    .onerow {
+
+    }
+    .tworows {
+
+    }
+    .threerows {
+        grid-row: 4;
+    }
+    .not_found h1{
+        margin: 0;
+        font-size: 10em;
+    }
+    .not_found h3{
+        margin: 0;
+        font-size: 2em;
+    }
+    .mobile_hidden {
+        display: block;
+    }
+    .centered_bottom_text {
+       font-size: h3;
+    }
+}
