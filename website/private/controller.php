@@ -4,7 +4,6 @@
 function homepage_action() {
     global $smarty;
     $language = getLanguage();
-    print_r($language);
     $smarty->assign('language', $language);
 
     $username = getUsername();
@@ -27,6 +26,9 @@ function homepage_action() {
 function notfoundpage_action() {
     global $smarty;
     //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
     $pagename = 'Uh oh';
     $smarty->assign('pagename', $pagename);
 
@@ -45,6 +47,9 @@ function notfoundpage_action() {
 function contactpage_action() {
     global $smarty;
     //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
     $pagename = 'Contact';
     $smarty->assign('pagename', $pagename);
 
@@ -60,6 +65,9 @@ function contactpage_action() {
 function newspage_action($pagenumber) {
     global $smarty;
     //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
     $pagename = 'News';
     $smarty->assign('pagename', $pagename);
 
@@ -81,6 +89,9 @@ function newspage_action($pagenumber) {
 function agendapage_action() {
     global $smarty;
     //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
     $pagename = 'Agenda';
     $smarty->assign('pagename', $pagename);
 
@@ -96,6 +107,9 @@ function agendapage_action() {
 function adminpage_action() {
     global $smarty;
     //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
     $pagename = 'Admin';
     $smarty->assign('pagename', $pagename);
 
@@ -108,20 +122,43 @@ function adminpage_action() {
     $smarty->display('footer.tpl');
 }
 
-function articlepage_action() {
+function articlepage_action($articleID) {
     global $smarty;
+
+    $article = getSpecificArticle($articleID);
+    $smarty->assign('article', $article);
+
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
     $username = getUsername();
     $smarty->assign('username', $username);
 
-//    $article = getArticleContents();
-    $article = "Title";
-    $smarty->assign('article', $article);
 
-    $pagename = 'Home';
+
+    $pagename = 'Article';
     $smarty->assign('pagename', $pagename);
 
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
     $smarty->display('article.tpl');
+    $smarty->display('footer.tpl');
+}
+function searchpage_action() {
+    global $smarty;
+    //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
+    $username = getUsername();
+    $smarty->assign('username', $username);
+
+    $pagename = 'Search';
+    $smarty->assign('pagename', $pagename);
+
+    //VIEWS
+    $smarty->display('header.tpl');
+    $smarty->display('navbar.tpl');
+    $smarty->display('search.tpl');
     $smarty->display('footer.tpl');
 }

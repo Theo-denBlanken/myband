@@ -1,11 +1,11 @@
 <h1 class="centered_text twocolumns ">Our latest and greatest news!</h1>
 {foreach from=$articles item=article}
     <div class="twocolumns">
-    <h2 class="article_title">{$article[0]}</h2>
-    <h5 class="article_content">Author: {$article[4]}</h5>
-    <h5 class="article_content">Date of publication: {$article[3]}</h5>
-    <img class="article_content" src="{$article[2]}">
-    <p class="article_content">{$article[1]}</p>
+    <h2 class="article_title">{$article['title']}</h2>
+    <h5 class="article_content">Author: {$article['author']}</h5>
+    <h5 class="article_content">Date of publication: {$article['date']}</h5>
+    <img class="article_content" src="{$article['image']}">
+    <p class="article_content">{$article['content']}</p>
     </div>
 {/foreach}
 

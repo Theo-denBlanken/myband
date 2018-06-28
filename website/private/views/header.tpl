@@ -7,8 +7,19 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64 256x256" href="/images/myband.png">
+    <link rel='stylesheet' href='css/fullcalendar.css'>
+
+
+
+    <script src='js/jquery.min.js'></script>
+    <script src='js/moment.min.js'></script>
+    <script src='js/fullcalendar.js'></script>
+    <script src="js/agenda.js"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <title>My Band | {$pagename}</title>
+    <title>{$language['site_title']} | {$pagename}</title>
 </head>
 <body>
 <header>

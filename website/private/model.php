@@ -1,7 +1,7 @@
 <?php
 
 function makeConnection() {
-    require ('db.php'); //FIX THIS
+    require ('db.php');
     $host = 'localhost';
     $username = 'root';
     $password = '';
@@ -26,7 +26,7 @@ function getMailAddress () {
     return $results;
 }
 function getUsername(){
- $username = 'Tigo';
+ $username = '{username}?';
  return $username;
 }
 function getArticles() {
@@ -45,6 +45,7 @@ function getArticles() {
         $article[] = $articleID;
         $results[] = $article;
     }
+//    getCalendarContent();
     return $results;
 }
 function getSomeArticles() {
@@ -62,11 +63,11 @@ function getSomeArticles() {
     $results = array();
     while($stmt->fetch()) {
         $article = array();
-        $article[] = $articleTitle;
-        $article[] = $articleContent;
-        $article[] = $articleImage;
-        $article[] = $articlePublishDate;
-        $article[] = $articleAuthor;
+        $article['title'] = $articleTitle;
+        $article['content'] = $articleContent;
+        $article['image'] = $articleImage;
+        $article['date'] = $articlePublishDate;
+        $article['author'] = $articleAuthor;
         $results[] = $article;
     }
     return $results;
@@ -82,6 +83,27 @@ function calculatePages() {
     return $numberOfPages;
 
 }
+function getSpecificArticle($articleID) {
+    global $pagenumber;
+
+    $mysqli = makeConnection();
+
+    $query = "SELECT article_title, article_content, article_image, article_publishdate, author_id FROM articles WHERE article_id = $articleID "; //MAKE DATABASE AND CONFIGURE IT
+
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [getSomeArticles]');
+    $stmt->bind_result($articleTitle, $articleContent, $articleImage, $articlePublishDate, $articleAuthor) or die ('Failed binding results [getSomeArticles]');
+    $stmt->execute() or die ('Failed executing [getSomeArticles]');
+    while($stmt->fetch()) {
+        $article = array();
+        $article['title'] = $articleTitle;
+        $article['content'] = $articleContent;
+        $article['image'] = $articleImage;
+        $article['date'] = $articlePublishDate;
+        $article['author'] = $articleAuthor;
+    }
+    return $article;
+
+}
 function getLanguage() {
     $mysqli = makeConnection();
     $query = "SELECT * FROM language";
@@ -93,5 +115,43 @@ function getLanguage() {
         $siteLanguage["$languageItem"] = $languageValue;
     }
     return $siteLanguage;
+}
+function getCalendarContent()
+{
+    $mysqli = makeConnection();
+    $query = "SELECT * FROM events";
+    $stmt = $mysqli->query($query);
+
+
+    $mysqli = makeConnection();
+
+    $query = "SELECT event_id, event_title, event_start, event_end FROM events"; //MAKE DATABASE AND CONFIGURE IT
+
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [getCalendarContent]');
+    $stmt->bind_result($eventID, $eventTitle, $eventStart, $eventEnd) or die ('Failed binding results [getCalendarContent]');
+    $stmt->execute() or die ('Failed executing [getCalendarContent]');
+
+    // Returning array
+    $events = array();
+
+    // Fetch results
+    while ($row = $stmt->fetch()) {
+
+        $e = array();
+        $e['id'] = $eventID;
+        $e['title'] = $eventTitle;
+        $e['start'] = $eventStart;
+        $e['end'] = $eventEnd;
+        $e['color'] = 'gold';
+        $e['allDay'] = false;
+
+        // Merge the event array into the return array
+        array_push($events, $e);
+
+    }
+
+    // Output json for our calendar
+    echo json_encode($events);
+    die();
 }
 ?>
