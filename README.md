@@ -1,6 +1,6 @@
 # Project Myband 
 ___
-![alt text](http://images.genericdevelopment.nl/Template-system-Smarty-blue.svg)
+![alt text](http://images.genericdevelopment.nl/Developed_using-Smarty-blue.svg)
 <br/>
 ![alt text](http://images.genericdevelopment.nl/Developed_with-PHP-blue.svg)
 ![alt text](http://images.genericdevelopment.nl/Developed_with-HTML-blue.svg)
