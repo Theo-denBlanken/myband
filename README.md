@@ -7,6 +7,9 @@ ___
 ![alt text](http://images.genericdevelopment.nl/Developed_with-CSS-blue.svg)
 ![alt text](http://images.genericdevelopment.nl/Developed_with-JS-blue.svg)
 ___
+### Where can i find the demo?
+http://myband.genericdevelopment.nl
+___
 ### Help me get better at programming
 >You can make a pull request with new code which is efficienter please add comments why it better to do it this way so I might learn things from it. 
 <br />
