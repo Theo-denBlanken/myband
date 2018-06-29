@@ -104,23 +104,6 @@ function agendapage_action() {
     $smarty->display('agenda.tpl');
     $smarty->display('footer.tpl');
 }
-function adminpage_action() {
-    global $smarty;
-    //MODEL
-    $language = getLanguage();
-    $smarty->assign('language', $language);
-
-    $pagename = 'Admin';
-    $smarty->assign('pagename', $pagename);
-
-    $username = getUsername();
-    $smarty->assign('username', $username);
-    //VIEW
-    $smarty->display('header.tpl');
-    $smarty->display('navbar.tpl');
-    $smarty->display('admin.tpl');
-    $smarty->display('footer.tpl');
-}
 
 function articlepage_action($articleID) {
     global $smarty;

@@ -1,4 +1,3 @@
-{*<div class="push"></div>*}
 </main>
 </body>
 <footer class="footer">

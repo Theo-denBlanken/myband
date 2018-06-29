@@ -1,7 +1,7 @@
 html,body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
     height: 100vh;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -168,5 +168,8 @@ footer {
         margin: 0;
         /*grid-column: 3;*/
         /*padding: 2vh 25vh 0vh 25vh;*/
+    }
+    .admin_login_text {
+        font-size: 2em;
     }
 }

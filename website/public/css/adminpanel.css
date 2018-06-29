@@ -1,0 +1,60 @@
+html,body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: lightgray;
+}
+main{
+    flex: 1 0 auto;
+}
+.filler {
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+.bghome {
+
+    background-image: url("../images/home_image.png");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.centered_top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    padding: 25px
+}
+.admin_login_text {
+    font-size: 1.5em
+}
+.admin_login_textfield {
+    width: 100%;
+    border-color: 2px solid transparent;
+    border-radius: 4px;
+    padding: 10px 0px;
+    margin: 0;
+    alignment: center;
+}
+.admin_login_button {
+    padding: 6px 12px;
+}
+.centered_text {
+    text-align: center;
+}
+@media screen and (min-width: 970px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .admin_login_text {
+        font-size: 2em;
+    }
+}
