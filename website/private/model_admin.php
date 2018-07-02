@@ -79,3 +79,36 @@ function getMissedMessagesCount()
     $rows = $result->num_rows;
     return $rows;
 }
+function getAllMessages()
+{
+    $mysqli = makeConnection();
+
+    $query = "SELECT message_id, sender_name, sender_email, message_subject, message_content, send_date, read_status FROM messages"; //MAKE DATABASE AND CONFIGURE IT
+
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [getAllMessages]');
+    $stmt->bind_result($messageID, $senderName, $senderEmail, $messageSubject, $messageContent, $dateSend, $readStatus) or die ('Failed binding results [getAllMessages]');
+    $stmt->execute() or die ('Failed executing [getAllMessages]');
+
+    // Returning array
+    $mails = array();
+
+    // Fetch results
+    while ($row = $stmt->fetch()) {
+
+        $e = array();
+        $e['id'] = $messageID;
+        $e['sendername'] = $senderName;
+        $e['senderemail'] = $senderEmail;
+        $e['subject'] = $messageSubject;
+        $e['content'] = $messageContent;
+        $e['readstatus'] = $readStatus;
+        $e['received'] = $dateSend;
+
+        // Merge the event array into the return array
+        array_push($mails, $e);
+
+    }
+
+    return $mails;
+}
+?>

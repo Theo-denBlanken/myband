@@ -49,16 +49,27 @@
                                 </tr>
                                 {foreach from=$articles item=article}
                                     <tr>
-                                        <td>{$article[4]}</td>
-                                        <td>{$article[0]}</td>
-                                        <td>{$article[2]}</td>
-                                        <td>{$article[3]}</td>
+                                        {*<td>{$article[4]}</td>*}
+                                        <td>None</td>
+                                        <td>{$article['title']}</td>
+                                        <td>{$article['date']}</td>
+                                        <td>{$article['author']}</td>
                                         <td><button class="btn-block btn-primary">View</button><button class="btn-block btn-danger">Delete</button></td>
                                     </tr>
                                 {/foreach}
                             </table>
                         </div>
                         <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <ul class="pagination pagination-sm m-0 float-right">
+                                <li class="page-item"><a class="page-link" href="">&laquo;</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     </div>
                     <!-- /.card -->
                 </div>

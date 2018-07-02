@@ -8,6 +8,12 @@ $smarty = new Smarty();
 $smarty->setCompileDir('../private/tmp_admin');
 $smarty->setTemplateDir('../private/views_admin');
 
+//DEFINED STUFF
+define('ARTICLES_PER_PAGE',10);
+
+
+
+$pagenumber = isset($_GET['pagenumber']) ? $_GET['pagenumber'] : '1';
 $page = isset($_GET['page']) ? $_GET['page'] : 'login';
 $data = isset($_GET['data']) ? $_GET['data'] : 'none';
 

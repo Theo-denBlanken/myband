@@ -27,7 +27,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index.php?page=home" class="brand-link">
-            <img src="{$settings['site_icon']}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <img src="{$settings['site_icon']}" alt="Website Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">{$language['site_title']}</span>
         </a>
@@ -37,7 +37,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{$user['userpicture']}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{$user['userpicture']}" class="img-circle elevation-2" alt="PF">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{$user['username']}</a>
@@ -77,6 +77,7 @@
                         <a href="admin.php?page=mail" class="nav-link">
                             <i class="fa fa-envelope-o nav-icon"></i>
                             <p>Messages</p>
+                            <span class="badge bg-warning float-right">{$missedmessages}</span>
                         </a>
                     </li>
                         <li class="nav-header">SETTINGS</li>

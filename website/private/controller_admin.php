@@ -68,11 +68,18 @@ function cms_posts()
     $pagename = 'Posts';
     $smarty->assign('pagename', $pagename);
 
-    $articles = getArticles();
+    $articles = getSomeArticles();
     $smarty->assign('articles', $articles);
 
     $user = getUsername();
     $smarty->assign('user', $user);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    $calculatePages = calculatePages();
+    $smarty->assign('calculatepages', $calculatePages);
+    echo $calculatePages;
 
     //VIEW
     $smarty->display('header.tpl');
@@ -80,30 +87,64 @@ function cms_posts()
     $smarty->display('posts.tpl');
     $smarty->display('footer.tpl');
 }
-    function cms_events()
-    {
-        global $smarty;
-        //MODEL
-        $language = getLanguage();
-        $smarty->assign('language', $language);
 
-        $settings = getSettings();
-        $smarty->assign('settings', $settings);
+function cms_events()
+{
+    global $smarty;
+    //MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
 
-        $pagename = 'Events';
-        $smarty->assign('pagename', $pagename);
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
 
-        $events = getCalendarContentAdmin();
-        $smarty->assign('events', $events);
+    $pagename = 'Events';
+    $smarty->assign('pagename', $pagename);
+
+    $events = getCalendarContentAdmin();
+    $smarty->assign('events', $events);
 
 
-        $user = getUsername();
-        $smarty->assign('user', $user);
+    $user = getUsername();
+    $smarty->assign('user', $user);
 
-        //VIEW
-        $smarty->display('header.tpl');
-        $smarty->display('sidebar.tpl');
-        $smarty->display('events.tpl');
-        $smarty->display('footer.tpl');
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    //VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('events.tpl');
+    $smarty->display('footer.tpl');
 }
+
+function cms_mail()
+{
+    global $smarty;
+//MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    $pagename = 'Mail';
+    $smarty->assign('pagename', $pagename);
+
+    $user = getUsername();
+    $smarty->assign('user', $user);
+
+    $mails = getAllMessages();
+    $smarty->assign('mails', $mails);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+//VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('mailinbox.tpl');
+    $smarty->display('footer.tpl');
+}
+
 ?>
