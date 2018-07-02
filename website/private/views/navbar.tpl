@@ -11,7 +11,7 @@
         <li><a href="index.php?page=contact">Contact</a></li>
         <li><a href="index.php?page=search">Search</a></li>
         {*<li><input type="text"><button>Search</button></input></li>*}
-        <li><a id='user' href="admin.php?page=login">{$username}</a></li>
+        <li><a id='user' href="admin.php?page=login">[Username]</a></li>
     </ul>
 </nav>
 </header>

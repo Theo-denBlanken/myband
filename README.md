@@ -7,6 +7,9 @@ ___
 ![alt text](http://images.genericdevelopment.nl/Developed_with-CSS-blue.svg)
 ![alt text](http://images.genericdevelopment.nl/Developed_with-JS-blue.svg)
 ___
+### Notice
+> The demo might me a little bit more up to date than the repository
+___
 ### Where can i find the demo?
 http://myband.genericdevelopment.nl
 ___

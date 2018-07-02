@@ -6,9 +6,6 @@ function homepage_action() {
     $language = getLanguage();
     $smarty->assign('language', $language);
 
-    $username = getUsername();
-    $smarty->assign('username', $username);
-
     $articles = getArticles();
     $smarty->assign('articles', $articles);
 
@@ -32,8 +29,6 @@ function notfoundpage_action() {
     $pagename = 'Uh oh';
     $smarty->assign('pagename', $pagename);
 
-    $username = getUsername();
-    $smarty->assign('username', $username);
     //VIEWS
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
@@ -52,9 +47,6 @@ function contactpage_action() {
 
     $pagename = 'Contact';
     $smarty->assign('pagename', $pagename);
-
-    $username = getUsername();
-    $smarty->assign('username', $username);
     //VIEWS
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
@@ -70,9 +62,6 @@ function newspage_action($pagenumber) {
 
     $pagename = 'News';
     $smarty->assign('pagename', $pagename);
-
-    $username = getUsername();
-    $smarty->assign('username', $username);
 
     $somenews = getSomeArticles();
     $smarty->assign('articles', $somenews);
@@ -95,9 +84,6 @@ function agendapage_action() {
     $pagename = 'Agenda';
     $smarty->assign('pagename', $pagename);
 
-    $username = getUsername();
-    $smarty->assign('username', $username);
-
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
@@ -114,11 +100,6 @@ function articlepage_action($articleID) {
     $language = getLanguage();
     $smarty->assign('language', $language);
 
-    $username = getUsername();
-    $smarty->assign('username', $username);
-
-
-
     $pagename = 'Article';
     $smarty->assign('pagename', $pagename);
 
@@ -132,9 +113,6 @@ function searchpage_action() {
     //MODEL
     $language = getLanguage();
     $smarty->assign('language', $language);
-
-    $username = getUsername();
-    $smarty->assign('username', $username);
 
     $pagename = 'Search';
     $smarty->assign('pagename', $pagename);

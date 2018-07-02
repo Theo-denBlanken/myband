@@ -19,6 +19,13 @@ switch ($data) {
 switch($page) {
     case 'login': cms_login(); break;
     case 'dashboard': cms_dashboard(); break;
-    default: break;
+    case 'analytics': cms_analytics(); break;
+    case 'posts': cms_posts(); break;
+    case 'mail': cms_mail(); break;
+    case 'events': cms_events(); break;
+    case 'users': cms_users(); break;
+    case 'langsettings': cms_langsettings(); break;
+    case 'sitesettings': cms_sitesettings(); break;
+    default: cms_dashboard(); break;
 }
 ?>

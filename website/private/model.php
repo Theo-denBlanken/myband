@@ -25,10 +25,6 @@ function getMailAddress () {
     } //JOEY MAAKT HIER EEN FOUT GOED BLIJVEM OPLETTEN
     return $results;
 }
-function getUsername(){
- $username = '{username}?';
- return $username;
-}
 function getArticles() {
     $mysqli = makeConnection();
     $query = "SELECT article_title, article_content, article_publishdate, author_id, article_id FROM articles ORDER BY article_id DESC LIMIT 10"; //MAKE DATABASE AND CONFIGURE IT
@@ -116,13 +112,20 @@ function getLanguage() {
     }
     return $siteLanguage;
 }
+function getSettings() {
+    $mysqli = makeConnection();
+    $query = "SELECT * FROM settings";
+    $stmt = $mysqli->prepare($query) or die ('Failed querying [getLanguage]');
+    $stmt->bind_result($settingsItem, $settingsValue);
+    $stmt->execute();
+    $siteSettings = array();
+    while ($stmt->fetch()) {
+        $siteSettings["$settingsItem"] = $settingsValue;
+    }
+    return $siteSettings;
+}
 function getCalendarContent()
 {
-    $mysqli = makeConnection();
-    $query = "SELECT * FROM events";
-    $stmt = $mysqli->query($query);
-
-
     $mysqli = makeConnection();
 
     $query = "SELECT event_id, event_title, event_start, event_end FROM events"; //MAKE DATABASE AND CONFIGURE IT
