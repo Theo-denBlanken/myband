@@ -29,7 +29,7 @@ function getUsername(){
 function getArticleCount() {
     $mysqli = makeConnection();
     $query = "SELECT article_id FROM articles";
-    $result = $mysqli->query($query) or die ('Failed querying [calculatePages]');
+    $result = $mysqli->query($query) or die ('Failed querying [getArticleCount]');
     $rows = $result->num_rows;
     return $rows;
 }
@@ -67,7 +67,15 @@ function getCalendarContentAdmin()
 function getUserCount() {
     $mysqli = makeConnection();
     $query = "SELECT user_id FROM users";
-    $result = $mysqli->query($query) or die ('Failed querying [calculatePages]');
+    $result = $mysqli->query($query) or die ('Failed querying [getUserCount]');
+    $rows = $result->num_rows;
+    return $rows;
+}
+function getMissedMessagesCount()
+{
+    $mysqli = makeConnection();
+    $query = "SELECT message_id FROM messages WHERE read_status = 0";
+    $result = $mysqli->query($query) or die ('Failed querying [getMissedMessagesCount]');
     $rows = $result->num_rows;
     return $rows;
 }

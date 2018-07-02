@@ -44,6 +44,10 @@ function cms_dashboard()
 
     $registeredusers = getUserCount();
     $smarty->assign('registeredusers', $registeredusers);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('sidebar.tpl');
