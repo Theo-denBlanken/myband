@@ -51,6 +51,7 @@ function cms_dashboard()
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
     $smarty->display('dashboard.tpl');
     $smarty->display('footer.tpl');
 }
@@ -84,6 +85,7 @@ function cms_posts()
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
     $smarty->display('posts.tpl');
     $smarty->display('footer.tpl');
 }
@@ -114,6 +116,7 @@ function cms_events()
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
     $smarty->display('events.tpl');
     $smarty->display('footer.tpl');
 }
@@ -143,8 +146,120 @@ function cms_mail()
 //VIEW
     $smarty->display('header.tpl');
     $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
     $smarty->display('mailinbox.tpl');
     $smarty->display('footer.tpl');
 }
 
+function cms_sitesettings()
+{
+
+    global $smarty;
+
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    $pagename = 'Site Settings';
+    $smarty->assign('pagename', $pagename);
+
+    $user = getUsername();
+    $smarty->assign('user', $user);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    //VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
+    $smarty->display('sitesettings.tpl');
+    $smarty->display('footer.tpl');
+}
+
+function cms_langsettings()
+{
+
+    //MODEL
+    global $smarty;
+
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    $pagename = 'Language Settings';
+    $smarty->assign('pagename', $pagename);
+
+    $user = getUsername();
+    $smarty->assign('user', $user);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    //VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
+    $smarty->display('langsettings.tpl');
+    $smarty->display('footer.tpl');
+
+}
+function cms_analytics() {
+
+    //MODEL
+    global $smarty;
+
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    $pagename = 'Analytics';
+    $smarty->assign('pagename', $pagename);
+
+    $user = getUsername();
+    $smarty->assign('user', $user);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    //VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
+    $smarty->display('analytics.tpl');
+    $smarty->display('footer.tpl');
+}
+function cms_users() {
+
+    //MODEL
+    global $smarty;
+
+    $language = getLanguage();
+    $smarty->assign('language', $language);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    $pagename = 'Users';
+    $smarty->assign('pagename', $pagename);
+
+    $user = getUsername();
+    $smarty->assign('user', $user);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    //VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
+    $smarty->display('manage_users.tpl');
+    $smarty->display('footer.tpl');
+}
 ?>

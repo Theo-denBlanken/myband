@@ -1,23 +1,3 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Messages</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="admin.php?page=dashboard">Admin</a></li>
-                        <li class="breadcrumb-item active">Messages</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -84,14 +64,15 @@
                     <div class="card-body p-0">
                         <div class="mailbox-controls">
                             <!-- Check all button -->
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                            </div>
+                            {*<button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>*}
+                            {*</button>*}
+                            {*<div class="btn-group">*}
+                                {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>*}
+                                {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>*}
+                                {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>*}
+                            {*</div>*}
                             <!-- /.btn-group -->
+                            {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>*}
                             <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
                             <div class="float-right">
                                 1-50/200
@@ -127,12 +108,12 @@
                     <div class="card-footer p-0">
                         <div class="mailbox-controls">
                             <!-- Check all button -->
-                            <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                            </button>
+                            {*<button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>*}
+                            {*</button>*}
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                                {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>*}
+                                {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>*}
+                                {*<button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>*}
                             </div>
                             <!-- /.btn-group -->
                             <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>

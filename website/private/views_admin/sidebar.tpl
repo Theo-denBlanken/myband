@@ -77,7 +77,7 @@
                         <a href="admin.php?page=mail" class="nav-link">
                             <i class="fa fa-envelope-o nav-icon"></i>
                             <p>Messages</p>
-                            <span class="badge bg-warning float-right">{$missedmessages}</span>
+                            <span class="badge bg-primary float-right">{$missedmessages}</span>
                         </a>
                     </li>
                         <li class="nav-header">SETTINGS</li>
