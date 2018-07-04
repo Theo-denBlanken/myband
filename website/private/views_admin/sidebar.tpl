@@ -21,6 +21,13 @@
                 </div>
             </div>
         </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="admin.php?data=logout">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </li>
+        </ul>
     </nav>
     <!-- /.navbar -->
     <!-- Main Sidebar Container -->

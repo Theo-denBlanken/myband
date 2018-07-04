@@ -16,7 +16,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'login';
 $data = isset($_GET['data']) ? $_GET['data'] : 'none';
 
 switch ($data) {
-    case 'login': processLogin();
+    case 'login': processLogin(); break;
+    case 'logout': processLogout(); break;
     default: break;
 }
 

@@ -5,6 +5,7 @@ function processLogin()
     $password = $_POST['password'];
 
     $hashedpw = hash('sha512', $password);
+    echo $hashedpw;
     $mysqli = makeConnection();
 
     $query = "SELECT user_id, user_hash FROM users WHERE user_email = ? AND user_password = ?";
@@ -15,10 +16,15 @@ function processLogin()
     if ($stmt->fetch() == 1) {
         setcookie('userId', $userId, time() + (3600 * 24 * 7));
         setcookie('userHash', $userHash, time() + (3600 * 24 * 7));
-        setcookie('loggedIn', 1, time() + (3600 * 24 * 7));
         header('Location: admin.php?page=dashboard');
         }
 
+}
+function processLogout()
+{
+    setcookie('userId', '', time() - (3600 * 24 * 7));
+    setcookie('userHash', '', time() - (3600 * 24 * 7));
+    header('Location: admin.php?page=login');
 }
 
 function setLanguage()
