@@ -1,24 +1,24 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-//echo("\x48\x65\x6C\x6C\x6F\x20\x57\x6F\x72\x6C\x64\x21");
-
+//All the required things to get it to work
 require('../private/smarty/Smarty.class.php');
 require('../private/model.php');
 require('../private/controller.php');
 
+//Defining Smarty
 $smarty = new Smarty();
 $smarty->setCompileDir('../private/tmp');
 $smarty->setTemplateDir('../private/views');
 
-//Set certain variables
+//Defining stuff
 define('ARTICLES_PER_PAGE',10);
 
-//TERNARY OPERATOR
+//See if GET variables are filled
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 $data = isset($_GET['data']) ? $_GET['data'] : 'none';
 $pagenumber = isset($_GET['pagenumber']) ? $_GET['pagenumber'] : '1';
 $articleid= isset($_GET['articleid']) ? $_GET['articleid'] : '1';
 
+//Use the data from the above statements to see which data or page needs to be loaded
 switch ($data) {
     case 'calendar': getCalendarContent();break;
     default: break;
