@@ -2,7 +2,11 @@
 function process_login(){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    header('Location: admin.php?page=dashboard');
+
+    echo $username;
+    echo $password;
+
+    //header('Location: admin.php?page=dashboard');
 }
 function setLanguage() {
     $mysqli = makeConnection();
