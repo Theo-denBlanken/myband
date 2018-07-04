@@ -1,42 +1,67 @@
 <?php
-function process_login(){
-    $username = $_POST['username'];
+function processLogin()
+{
+    $username = $_POST['email'];
     $password = $_POST['password'];
 
-    echo $username;
-    echo $password;
+    $hashedpw = hash('sha512', $password);
+    $mysqli = makeConnection();
 
-    //header('Location: admin.php?page=dashboard');
+    $query = "SELECT user_id, user_hash FROM users WHERE user_email = ? AND user_password = ?";
+    $stmt = $mysqli->prepare($query) or die ('Failed querying [processLogin]');
+    $stmt->bind_param('ss', $username, $hashedpw);
+    $stmt->bind_result($userId, $userHash);
+    $stmt->execute();
+    if ($stmt->fetch() == 1) {
+        setcookie('userId', $userId, time() + (3600 * 24 * 7));
+        setcookie('userHash', $userHash, time() + (3600 * 24 * 7));
+        setcookie('loggedIn', 1, time() + (3600 * 24 * 7));
+        header('Location: admin.php?page=dashboard');
+        }
+
 }
-function setLanguage() {
+
+function setLanguage()
+{
     $mysqli = makeConnection();
     return $siteLanguageSatus;
 }
-function setSettings() {
+
+function setSettings()
+{
     $mysqli = makeConnection();
     return $siteSettingsStatus;
 }
-function getUsername(){
+
+function getUsername()
+{
     $mysqli = makeConnection();
-    $query = "SELECT user_id user_username, user_username, user_profilepicture, user_email, user_hash FROM users WHERE user_id = 1";
+    $query = "SELECT user_id user_username, user_username, user_profilepicture, user_email, user_hash FROM users WHERE user_id = ? AND user_hash = ?";
     $stmt = $mysqli->prepare($query) or die ('Failed querying [getLanguage]');
-    $stmt->bind_result( $user_id, $user_username, $user_profilepicture, $user_email, $user_hash);
+    $stmt->bind_param('ss',$_COOKIE['userId'], $_COOKIE['userHash']);
+    $stmt->bind_result($user_id, $user_username, $user_profilepicture, $user_email, $user_hash);
     $stmt->execute();
     $user = array();
-    while ($stmt->fetch()) {
+    if ($stmt->fetch() == 1) {
         $user['username'] = $user_username;
         $user['useremail'] = $user_email;
         $user['userpicture'] = $user_profilepicture;
+        return $user;
+    } else {
+        header('Location: admin.php?page=login');
     }
-    return $user;
+
 }
-function getArticleCount() {
+
+function getArticleCount()
+{
     $mysqli = makeConnection();
     $query = "SELECT article_id FROM articles";
     $result = $mysqli->query($query) or die ('Failed querying [getArticleCount]');
     $rows = $result->num_rows;
     return $rows;
 }
+
 function getCalendarContentAdmin()
 {
     $mysqli = makeConnection();
@@ -68,13 +93,16 @@ function getCalendarContentAdmin()
 
     return $events;
 }
-function getUserCount() {
+
+function getUserCount()
+{
     $mysqli = makeConnection();
     $query = "SELECT user_id FROM users";
     $result = $mysqli->query($query) or die ('Failed querying [getUserCount]');
     $rows = $result->num_rows;
     return $rows;
 }
+
 function getMissedMessagesCount()
 {
     $mysqli = makeConnection();
@@ -83,6 +111,7 @@ function getMissedMessagesCount()
     $rows = $result->num_rows;
     return $rows;
 }
+
 function getAllMessages()
 {
     $mysqli = makeConnection();
@@ -115,4 +144,5 @@ function getAllMessages()
 
     return $mails;
 }
+
 ?>
