@@ -157,4 +157,20 @@ function getCalendarContent()
     echo json_encode($events);
     die();
 }
+function searchArticle() {
+    $mysqli = makeConnection();
+
+
+    $searchquery = $_GET['searchquery'];
+    $query = "SELECT article_title, article_content FROM articles WHERE article_title LIKE '%" . $searchquery . "%' OR article_content LIKE '%" . $searchquery . "%' OR author_id LIKE '%" . $searchquery . "%'  ";
+//    echo $query;
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_result($title, $content);
+    $stmt->execute();
+    while ($stmt->fetch()) {
+        echo $title;
+    }
+
+
+}
 ?>

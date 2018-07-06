@@ -20,7 +20,8 @@ $articleid= isset($_GET['articleid']) ? $_GET['articleid'] : '1';
 
 //Use the data from the above statements to see which data or page needs to be loaded
 switch ($data) {
-    case 'calendar': getCalendarContent();break;
+    case 'calendar': getCalendarContent(); break;
+    case 'search': searchArticle(); break;
     default: break;
 }
 
@@ -35,5 +36,6 @@ switch ($page) {
 
     //Admin stuff
     case 'admin': adminpage_action(); break;
+    case 'none': break;
     default: notfoundpage_action(); break;
 }

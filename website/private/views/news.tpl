@@ -1,4 +1,8 @@
 <h1 class="centered_text twocolumns ">Our latest and greatest news!</h1>
+<form href="" method="">
+    <input input="text" onkeyup="search(this.value)">
+    <p id="test"></p>
+</form>
 {foreach from=$articles item=article}
     <div class="twocolumns">
     <h2 class="article_title">{$article['title']}</h2>
@@ -33,3 +37,24 @@
     </tr>
 </table>
 </div>
+<script>
+    function search(str) {
+        if (str=="") {
+            document.getElementById("test").innerHTML="";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        } else { // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+                document.getElementById("test").innerHTML=this.responseText;
+            }
+        }
+        xmlhttp.open("GET","index.php?page=none&data=search&searchquery="+str,true);
+        xmlhttp.send();
+    }
+</script>
