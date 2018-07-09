@@ -9,10 +9,11 @@
         <li><a href="index.php?page=news">News</a></li>
         <li><a href="index.php?page=agenda">Agenda</a></li>
         <li><a href="index.php?page=contact">Contact</a></li>
-        <li><a href="index.php?page=search">Search</a></li>
+        {*<li><a href="index.php?page=search">Search</a></li>*}
         {*<li><input type="text"><button>Search</button></input></li>*}
-        <li><a id='user' href="admin.php?page=login">[Username]</a></li>
+        <li><a id='user' href="admin.php?page=login">CMS</a></li>
     </ul>
+
 </nav>
 </header>
 <main>

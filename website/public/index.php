@@ -35,7 +35,7 @@ switch ($page) {
     case 'search': searchpage_action(); break;
 
     //Admin stuff
-    case 'admin': adminpage_action(); break;
+    case 'admin': header('Location: admin.php'); break;
     case 'none': break;
     default: notfoundpage_action(); break;
 }

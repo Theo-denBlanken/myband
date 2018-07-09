@@ -7,7 +7,6 @@
 nav ul {
     list-style-type: none;
     margin: 0;
-    /*padding: 10px 5px 10px;*/
 }
 .menuToggle {
     text-align: right;
@@ -32,7 +31,7 @@ nav ul {
     display: none;
 }
 #menuToggle:checked ~ ul a {
-    /*Breng het menu terug */
+    /* Show menu */
     font-size: 1em;
     height: 1em;
     line-height: 1em;
@@ -52,7 +51,7 @@ nav a {
     color: #eee;
     text-decoration: none;
     padding: 1em;
-    /* verberg menu */
+    /* Hide menu */
     font-size: 0;
     border-bottom: 0;
     height: 0;

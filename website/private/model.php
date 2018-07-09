@@ -80,7 +80,6 @@ function calculatePages() {
 
 }
 function getSpecificArticle($articleID) {
-    global $pagenumber;
 
     $mysqli = makeConnection();
 
@@ -162,15 +161,13 @@ function searchArticle() {
 
 
     $searchquery = $_GET['searchquery'];
-    $query = "SELECT article_title, article_content FROM articles WHERE article_title LIKE '%" . $searchquery . "%' OR article_content LIKE '%" . $searchquery . "%' OR author_id LIKE '%" . $searchquery . "%'  ";
+    $query = "SELECT article_title, article_id FROM articles WHERE article_title LIKE '%" . $searchquery . "%' OR article_content LIKE '%" . $searchquery . "%' OR author_id LIKE '%" . $searchquery . "%' OR article_publishdate LIKE '%" . $searchquery . "%'  ";
 //    echo $query;
     $stmt = $mysqli->prepare($query);
-    $stmt->bind_result($title, $content);
+    $stmt->bind_result($title,$article_id);
     $stmt->execute();
     while ($stmt->fetch()) {
-        echo $title;
+        echo '<a href="index.php?page=article&articleid=' . $article_id . '">' . $title . '</a><br/>';
     }
-
-
 }
 ?>
