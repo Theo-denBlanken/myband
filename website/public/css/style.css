@@ -3,7 +3,8 @@ html,body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-family: 'Noto Sans', sans-serif;
+    /*font-family: 'Noto Sans', sans-serif;*/
+    font-family: 'Russo One', sans-serif;
 }
 main{
     flex: 1 0 auto;
