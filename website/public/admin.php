@@ -22,6 +22,7 @@ $data = isset($_GET['data']) ? $_GET['data'] : 'none';
 switch ($data) {
     case 'login': processLogin(); break;
     case 'logout': processLogout(); break;
+    case 'setLanguage': setLanguage(); break;
     default: break;
 }
 

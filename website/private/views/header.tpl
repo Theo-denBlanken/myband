@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
-    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64 256x256" href="/images/myband.png">
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64 256x256" href="{$settings['site_icon']}">
     <link rel='stylesheet' href='css/fullcalendar.css'>
 
 

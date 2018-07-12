@@ -1,66 +1,61 @@
-<!-- Main content -->
-<div class="content">
+<section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-
-                <div class="card card-primary card-outline">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div><!-- /.card -->
-            </div>
-            <!-- /.col-md-6 -->
-            <div class="col-lg-6">
-                <div class="card">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
                     <div class="card-header">
-                        <h5 class="m-0">Featured</h5>
+                        <h3 class="card-title">{$pagename}</h3>
                     </div>
-                    <div class="card-body">
-                        <h6 class="card-title">Special title treatment</h6>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="admin?page=langsettings" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Site Title</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">{$settings['site_icon']}</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Site Description</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" value="{$language['site_description']}">
+                            </div>
+                            {*<div class="form-check">*}
+                                {*<input type="checkbox" class="form-check-input" id="exampleCheck1">*}
+                                {*<label class="form-check-label" for="exampleCheck1">Check me out</label>*}
+                            {*</div>*}
+                        </div>
+                        <!-- /.card-body -->
 
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-
-                <div class="card card-primary card-outline">
-                    <div class="card-header">
-                        <h5 class="m-0">Featured</h5>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">Special title treatment</h6>
-
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
+</section>
 </div>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+
+
+{*<div class="form-group">*}
+    {*<label for="exampleInputFile">File input</label>*}
+    {*<div class="input-group">*}
+        {*<div class="custom-file">*}
+            {*<input type="file" class="custom-file-input" id="exampleInputFile">*}
+            {*<label class="custom-file-label" for="exampleInputFile">Choose file</label>*}
+        {*</div>*}
+        {*<div class="input-group-append">*}
+            {*<span class="input-group-text" id="">Upload</span>*}
+        {*</div>*}
+    {*</div>*}
+{*</div>*}

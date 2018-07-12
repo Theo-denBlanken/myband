@@ -2,6 +2,7 @@
 //GET DATA AN PUT THEM ON THE SCREEN
 
 function homepage_action() {
+    //MODEL
     global $smarty;
     $language = getLanguage();
     $smarty->assign('language', $language);
@@ -12,10 +13,13 @@ function homepage_action() {
     $pagename = 'Home';
     $smarty->assign('pagename', $pagename);
 
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    //VIEWS
     $smarty->display('header.tpl');
     $smarty->display('home_image.tpl');
     $smarty->display('navbar.tpl');
-
     $smarty->display('home.tpl');
     $smarty->display('footer.tpl');
 }
@@ -28,6 +32,9 @@ function notfoundpage_action() {
 
     $pagename = 'Uh oh';
     $smarty->assign('pagename', $pagename);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
 
     //VIEWS
     $smarty->display('header.tpl');
@@ -47,6 +54,10 @@ function contactpage_action() {
 
     $pagename = 'Contact';
     $smarty->assign('pagename', $pagename);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
     //VIEWS
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
@@ -69,6 +80,10 @@ function newspage_action($pagenumber) {
     $smarty->assign('pagenumber', $pagenumber);
     $numberOfPages = calculatePages();
     $smarty->assign('numberOfPages', $numberOfPages);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
@@ -84,6 +99,9 @@ function agendapage_action() {
     $pagename = 'Agenda';
     $smarty->assign('pagename', $pagename);
 
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
     //VIEW
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
@@ -92,6 +110,7 @@ function agendapage_action() {
 }
 
 function articlepage_action($articleID) {
+    //MODEL
     global $smarty;
 
     $article = getSpecificArticle($articleID);
@@ -103,6 +122,10 @@ function articlepage_action($articleID) {
     $pagename = 'Article';
     $smarty->assign('pagename', $pagename);
 
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    //VIEW
     $smarty->display('header.tpl');
     $smarty->display('navbar.tpl');
     $smarty->display('article.tpl');
@@ -116,6 +139,9 @@ function searchpage_action() {
 
     $pagename = 'Search';
     $smarty->assign('pagename', $pagename);
+
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
 
     //VIEWS
     $smarty->display('header.tpl');

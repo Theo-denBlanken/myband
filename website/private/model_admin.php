@@ -5,7 +5,6 @@ function processLogin()
     $password = $_POST['password'];
 
     $hashedpw = hash('sha512', $password);
-    echo $hashedpw;
     $mysqli = makeConnection();
 
     $query = "SELECT user_id, user_hash FROM users WHERE user_email = ? AND user_password = ?";
@@ -30,7 +29,21 @@ function processLogout()
 function setLanguage()
 {
     $mysqli = makeConnection();
-    return $siteLanguageSatus;
+
+    $siteSettings = array();
+    $siteSettings[] = $_POST['siteTitle'];
+    $siteSettings[] = $_POST['siteDescription'];
+
+    $query = "UPDATE `language` SET value = ? WHERE item = 'site_title'";
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [setLanguage]');
+    $stmt->bind_param('s', $_POST['siteTitle']) or die ('Failed Binding params [setLanguage]');
+    $stmt->execute();
+
+    $query = "UPDATE `language` SET value = ? WHERE item = 'site_description'";
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [setLanguage]');
+    $stmt->bind_param('s', $_POST['siteDescription']) or die ('Failed Binding params [setLanguage]');
+    $stmt->execute();
+
 }
 
 function setSettings()
