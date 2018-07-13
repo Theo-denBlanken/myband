@@ -16,9 +16,10 @@ function processLogin()
         setcookie('userId', $userId, time() + (3600 * 24 * 7));
         setcookie('userHash', $userHash, time() + (3600 * 24 * 7));
         header('Location: admin.php?page=dashboard');
-        }
+    }
 
 }
+
 function processLogout()
 {
     setcookie('userId', '', time() - (3600 * 24 * 7));
@@ -57,7 +58,7 @@ function getUsername()
     $mysqli = makeConnection();
     $query = "SELECT user_id user_username, user_username, user_profilepicture, user_email, user_hash FROM users WHERE user_id = ? AND user_hash = ?";
     $stmt = $mysqli->prepare($query) or die ('Failed querying [getLanguage]');
-    $stmt->bind_param('ss',$_COOKIE['userId'], $_COOKIE['userHash']);
+    $stmt->bind_param('ss', $_COOKIE['userId'], $_COOKIE['userHash']);
     $stmt->bind_result($user_id, $user_username, $user_profilepicture, $user_email, $user_hash);
     $stmt->execute();
     $user = array();
@@ -162,6 +163,22 @@ function getAllMessages()
     }
 
     return $mails;
+}
+
+function getUsers()
+{
+    $mysqli = makeConnection();
+
+    $query = "SELECT user_id, user_username,user_profilepicture FROM users";
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [getUsers]');
+    $stmt->bind_result($userId, $userUsername, $userProfilepicture);
+    $stmt->execute();
+    $result = array();
+    while($stmt->fetch()) {
+        $userInfo = array();
+        $userInfo['userid'] = $userId;
+        $userInfo['username'] =
+    }
 }
 
 ?>

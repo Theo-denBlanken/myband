@@ -9,6 +9,9 @@
 function cms_login()
 {
     global $smarty;
+    echo "Demo Credentials: <br />";
+    echo "Username: demo@demo.nl <br />";
+    echo "Password: demo<br />";
 
     //MODEL
     $language = getLanguage();
@@ -208,7 +211,9 @@ function cms_langsettings()
     $smarty->display('footer.tpl');
 
 }
-function cms_analytics() {
+
+function cms_analytics()
+{
 
     //MODEL
     global $smarty;
@@ -235,7 +240,9 @@ function cms_analytics() {
     $smarty->display('analytics.tpl');
     $smarty->display('footer.tpl');
 }
-function cms_users() {
+
+function cms_users()
+{
 
     //MODEL
     global $smarty;
@@ -252,6 +259,9 @@ function cms_users() {
     $user = getUsername();
     $smarty->assign('user', $user);
 
+    $users = getUsers();
+    $smarty->assign('users', $users);
+
     $missedmessages = getMissedMessagesCount();
     $smarty->assign('missedmessages', $missedmessages);
 
@@ -262,4 +272,5 @@ function cms_users() {
     $smarty->display('manage_users.tpl');
     $smarty->display('footer.tpl');
 }
+
 ?>

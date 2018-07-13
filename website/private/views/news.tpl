@@ -2,7 +2,7 @@
 <form class="twocolumns" href="" method="">
     <input class="centered_block" input="text" onkeyup="search(this.value)">
     <div>
-    <p class="searchitems" style="position: absolute;" id="searchresults"></p>
+        <p class="searchitems" style="position: absolute;" id="searchresults"></p>
     </div>
 </form>
 {foreach from=$articles item=article}
@@ -21,7 +21,8 @@
         <tr>
             <td id="left">
                 {if $pagenumber > 1}
-                    <a class="navigation_arrows fas fa-arrow-left" href="index.php?page=news&pagenumber={$pagenumber-1}"></a>
+                    <a class="navigation_arrows fas fa-arrow-left"
+                       href="index.php?page=news&pagenumber={$pagenumber-1}"></a>
                 {else}
                     <a class="disabled_navigation_arrows fas fa-arrow-left"></a>
                 {/if}
@@ -31,7 +32,8 @@
             </td>
             <td id="right">
                 {if $pagenumber < $numberOfPages}
-                    <a class="navigation_arrows fas fa-arrow-right" href="index.php?page=news&pagenumber={$pagenumber+1}"></a>
+                    <a class="navigation_arrows fas fa-arrow-right"
+                       href="index.php?page=news&pagenumber={$pagenumber+1}"></a>
                 {else}
                     <a class="disabled_navigation_arrows fas fa-arrow-right"></a>
                 {/if}
@@ -41,27 +43,26 @@
 </div>
 <script>
     function search(str) {
-        if (str=="") {
-            document.getElementById("searchresults").innerHTML="";
+        if (str == "") {
+            document.getElementById("searchresults").innerHTML = "";
             return;
         }
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
+            xmlhttp = new XMLHttpRequest();
         } else { // code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.onreadystatechange=function() {
-            if (this.readyState==4 && this.status==200) {
-                document.getElementById("searchresults").innerHTML=this.responseText;
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("searchresults").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET","index.php?page=none&data=search&searchquery="+str,true);
+        xmlhttp.open("GET", "index.php?page=none&data=search&searchquery=" + str, true);
         xmlhttp.send();
     }
 </script>
 <script>
-
 
 
 </script>
