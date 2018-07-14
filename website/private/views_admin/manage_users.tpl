@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Articles</h3>
+                        <h3 class="card-title">Registered Users</h3>
 
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -22,21 +22,21 @@
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
                             <tr>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Start</th>
-                                <th>End</th>
+                                <th class="manageusersid">ID</th>
+                                <th class="manageusersprofilepicture">Picture</th>
+                                <th>Username</th>
+                                <th>Email</th>
                                 <th></th>
+                                {*<th></th>*}
                             </tr>
-                            {foreach from=$events item=event}
+                            {foreach from=$users item=user}
                                 <tr>
-                                    <td>{$event['id']}</td>
-                                    <td>{$event['title']}</td>
-                                    <td>{$event['start']}</td>
-                                    <td>{$event['end']}</td>
+                                    <td>{$user['userId']}</td>
+                                    <td><img src="{$user['userProfilePicture']}" class="manageusersprofilepicture"></td>
+                                    <td>{$user['userName']}</td>
+                                    <td>{$user['userEmail']}</td>
                                     <td>
                                         <button class="btn-block btn-primary">Edit</button>
-                                        <button class="btn-block btn-danger">Delete</button>
                                     </td>
                                 </tr>
                             {/foreach}

@@ -13,7 +13,8 @@
         <!-- SEARCH FORM -->
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search (Does not work)"
+                       aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                         <i class="fa fa-search"></i>
@@ -53,32 +54,33 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-header">ANALYTICS, POSTS AND EVENTS</li>
-                            <li class="nav-item">
-                                <a href="admin.php?page=dashboard" class="nav-link">
-                                    <i class="fa fa-home nav-icon"></i>
-                                    <p>Dashboard</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="admin.php?page=analytics" class="nav-link">
-                                    <i class="fa fa-line-chart nav-icon"></i>
-                                    <p>Analytics</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="admin.php?page=posts" class="nav-link">
-                                    <i class="fa fa-newspaper-o nav-icon"></i>
-                                    <p>Posts</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="admin.php?page=events" class="nav-link">
-                                    <i class="fa fa-calendar nav-icon"></i>
-                                    <p>Events</p>
-                                </a>
-                            </li>
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <li class="nav-header">ANALYTICS, POSTS AND EVENTS</li>
+                    <li class="nav-item">
+                        <a href="admin.php?page=dashboard" class="nav-link">
+                            <i class="fa fa-home nav-icon"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.php?page=analytics" class="nav-link">
+                            <i class="fa fa-line-chart nav-icon"></i>
+                            <p>Analytics</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.php?page=posts" class="nav-link">
+                            <i class="fa fa-newspaper-o nav-icon"></i>
+                            <p>Posts</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="admin.php?page=events" class="nav-link">
+                            <i class="fa fa-calendar nav-icon"></i>
+                            <p>Events</p>
+                        </a>
+                    </li>
                     <li class="nav-header">MESSAGES</li>
                     <li class="nav-item">
                         <a href="admin.php?page=mail" class="nav-link">
@@ -87,7 +89,7 @@
                             <span class="badge bg-primary float-right">{$missedmessages}</span>
                         </a>
                     </li>
-                        <li class="nav-header">SETTINGS</li>
+                    <li class="nav-header">SETTINGS</li>
                     <li class="nav-item">
                         <a href="admin.php?page=users" class="nav-link">
                             <i class="fa fa-users nav-icon"></i>
@@ -106,8 +108,8 @@
                             <p>Site settings</p>
                         </a>
                     </li>
-                        </ul>
-                    </li>
+                </ul>
+                </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

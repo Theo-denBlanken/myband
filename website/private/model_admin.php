@@ -169,16 +169,20 @@ function getUsers()
 {
     $mysqli = makeConnection();
 
-    $query = "SELECT user_id, user_username,user_profilepicture FROM users";
+    $query = "SELECT user_id, user_username,user_profilepicture, user_email FROM users";
     $stmt = $mysqli->prepare($query) or die ('Failed preparing [getUsers]');
-    $stmt->bind_result($userId, $userUsername, $userProfilepicture);
+    $stmt->bind_result($userId, $userUsername, $userProfilepicture, $userEmail);
     $stmt->execute();
     $result = array();
     while($stmt->fetch()) {
         $userInfo = array();
-        $userInfo['userid'] = $userId;
-        $userInfo['username'] =
+        $userInfo['userId'] = $userId;
+        $userInfo['userName'] = $userUsername;
+        $userInfo['userProfilePicture'] = $userProfilepicture;
+        $userInfo['userEmail'] = $userEmail;
+        $result[] = $userInfo;
     }
+    return $result;
 }
 
 ?>

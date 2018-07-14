@@ -1,5 +1,5 @@
 <h1 class="centered_text twocolumns">Contact us!</h1>
-<form class="twocolumns">
+<form class="twocolumns" method="post" action="index.php?page=contact&data=message">
     <label for="firstname">First Name</label><br />
     <input type="text" id="firstname">
     <br />
@@ -14,8 +14,8 @@
     <br />
 
     <label for="message">Your Message</label><br />
-    <input type="textbox" id="message">
+    <input type="textbox" size="100" maxLength="100" id="message">
 
-
+    <input type="submit">
 
 </form>
