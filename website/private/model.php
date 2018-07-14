@@ -51,10 +51,10 @@ function getSomeArticles() {
     $pages = calculatePages() or die ('Failed calculating [getSomeArticles]');
     $firstRow = ($pagenumber - 1) * ARTICLES_PER_PAGE;
 
-    $query = "SELECT article_title, article_content, article_image, article_publishdate, author_id FROM articles ORDER BY article_id DESC LIMIT $firstRow, $pages"; //MAKE DATABASE AND CONFIGURE IT
+    $query = "SELECT article_title, article_content, article_image, article_publishdate, author_id, article_id FROM articles ORDER BY article_id DESC LIMIT $firstRow, $pages"; //MAKE DATABASE AND CONFIGURE IT
 
     $stmt = $mysqli->prepare($query) or die ('Failed preparing [getSomeArticles]');
-    $stmt->bind_result($articleTitle, $articleContent, $articleImage, $articlePublishDate, $articleAuthor) or die ('Failed binding results [getSomeArticles]');
+    $stmt->bind_result($articleTitle, $articleContent, $articleImage, $articlePublishDate, $articleAuthor, $articleId) or die ('Failed binding results [getSomeArticles]');
     $stmt->execute() or die ('Failed executing [getSomeArticles]');
     $results = array();
     while($stmt->fetch()) {
@@ -64,6 +64,7 @@ function getSomeArticles() {
         $article['image'] = $articleImage;
         $article['date'] = $articlePublishDate;
         $article['author'] = $articleAuthor;
+        $article['articleId'] = $articleId;
         $results[] = $article;
     }
     return $results;
@@ -83,10 +84,10 @@ function getSpecificArticle($articleID) {
 
     $mysqli = makeConnection();
 
-    $query = "SELECT article_title, article_content, article_image, article_publishdate, author_id FROM articles WHERE article_id = $articleID "; //MAKE DATABASE AND CONFIGURE IT
+    $query = "SELECT article_title, article_content, article_image, article_publishdate, author_id, article_id   FROM articles WHERE article_id = $articleID "; //MAKE DATABASE AND CONFIGURE IT
 
     $stmt = $mysqli->prepare($query) or die ('Failed preparing [getSomeArticles]');
-    $stmt->bind_result($articleTitle, $articleContent, $articleImage, $articlePublishDate, $articleAuthor) or die ('Failed binding results [getSomeArticles]');
+    $stmt->bind_result($articleTitle, $articleContent, $articleImage, $articlePublishDate, $articleAuthor, $articleId) or die ('Failed binding results [getSomeArticles]');
     $stmt->execute() or die ('Failed executing [getSomeArticles]');
     while($stmt->fetch()) {
         $article = array();
@@ -95,9 +96,9 @@ function getSpecificArticle($articleID) {
         $article['image'] = $articleImage;
         $article['date'] = $articlePublishDate;
         $article['author'] = $articleAuthor;
+        $article['articleId'] = $articleId;
     }
     return $article;
-
 }
 function getLanguage() {
     $mysqli = makeConnection();

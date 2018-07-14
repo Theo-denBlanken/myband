@@ -29,12 +29,11 @@
                                 </tr>
                                 {foreach from=$articles item=article}
                                     <tr>
-                                        {*<td>{$article[4]}</td>*}
-                                        <td>None</td>
+                                        <td>{$article['articleId']}</td>
                                         <td>{$article['title']}</td>
                                         <td>{$article['date']}</td>
                                         <td>{$article['author']}</td>
-                                        <td><button class="btn-block btn-primary">View</button><button class="btn-block btn-danger">Delete</button></td>
+                                        <td><a  href="admin.php?page=editpost&articleid={$article['articleId']}">View</a></td>
                                     </tr>
                                 {/foreach}
                             </table>

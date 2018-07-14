@@ -24,14 +24,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Site Description</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" value="{$language['site_description']}">
-                            </div>
-                            {*<div class="form-check">*}
-                                {*<input type="checkbox" class="form-check-input" id="exampleCheck1">*}
-                                {*<label class="form-check-label" for="exampleCheck1">Check me out</label>*}
-                            {*</div>*}
                         </div>
                         <!-- /.card-body -->
 

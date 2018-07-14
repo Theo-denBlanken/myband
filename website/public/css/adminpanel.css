@@ -27,3 +27,6 @@ body bghome {
 .manageusersid {
     width: 10px;
 }
+.button {
+    appearance: button;
+}

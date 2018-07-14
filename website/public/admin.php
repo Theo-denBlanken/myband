@@ -23,6 +23,7 @@ switch ($data) {
     case 'login': processLogin(); break;
     case 'logout': processLogout(); break;
     case 'setLanguage': setLanguage(); break;
+    case 'setArticle': setArticle(); break;
     default: break;
 }
 
@@ -36,6 +37,9 @@ switch($page) {
     case 'users': cms_users(); break;
     case 'langsettings': cms_langsettings(); break;
     case 'sitesettings': cms_sitesettings(); break;
+
+    //Editpages
+    case 'editpost': cms_editpost(); break;
     default: cms_dashboard(); break;
 }
 ?>

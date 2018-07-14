@@ -83,7 +83,6 @@ function cms_posts()
 
     $calculatePages = calculatePages();
     $smarty->assign('calculatepages', $calculatePages);
-    echo $calculatePages;
 
     //VIEW
     $smarty->display('header.tpl');
@@ -272,5 +271,36 @@ function cms_users()
     $smarty->display('manage_users.tpl');
     $smarty->display('footer.tpl');
 }
+function cms_editpost()
+{
+    global $smarty;
+//MODEL
+    $language = getLanguage();
+    $smarty->assign('language', $language);
 
+    $settings = getSettings();
+    $smarty->assign('settings', $settings);
+
+    $pagename = 'Edit article';
+    $smarty->assign('pagename', $pagename);
+
+    $article = getSpecificArticle($_GET['articleid']);
+    $smarty->assign('article', $article);
+
+    $user = getUsername();
+    $smarty->assign('user', $user);
+
+    $missedmessages = getMissedMessagesCount();
+    $smarty->assign('missedmessages', $missedmessages);
+
+    $calculatePages = calculatePages();
+    $smarty->assign('calculatepages', $calculatePages);
+
+//VIEW
+    $smarty->display('header.tpl');
+    $smarty->display('sidebar.tpl');
+    $smarty->display('pagetop.tpl');
+    $smarty->display('post_edit.tpl');
+    $smarty->display('footer.tpl');
+}
 ?>

@@ -27,13 +27,24 @@ function processLogout()
     header('Location: admin.php?page=login');
 }
 
-function setLanguage()
+function setArticle()
 {
     $mysqli = makeConnection();
 
-    $siteSettings = array();
-    $siteSettings[] = $_POST['siteTitle'];
-    $siteSettings[] = $_POST['siteDescription'];
+    $query = "UPDATE `articles` SET article_title = ? WHERE article_id = ?";
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [setLanguage]');
+    $stmt->bind_param('ss', $_POST['articleTitle'], $_POST['articleId']) or die ('Failed Binding params [setLanguage]');
+    $stmt->execute();
+
+    $query = "UPDATE `articles` SET article_content = ? WHERE article_id = ?";
+    $stmt = $mysqli->prepare($query) or die ('Failed preparing [setLanguage]');
+    $stmt->bind_param('ss', $_POST['articleContent'], $_POST['articleId']) or die ('Failed Binding params [setLanguage]');
+    $stmt->execute();
+
+}
+function setLanguage()
+{
+    $mysqli = makeConnection();
 
     $query = "UPDATE `language` SET value = ? WHERE item = 'site_title'";
     $stmt = $mysqli->prepare($query) or die ('Failed preparing [setLanguage]');
